@@ -1,0 +1,29 @@
+{
+    "name": "silverslice/yii2-queue-failed",
+    "description": "Manage failed queued jobs in Yii 2",
+    "type": "yii2-extension",
+    "keywords": ["queue", "failed", "yii"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Igor Mikheev",
+            "email": "silver_slice@mail.ru"
+        }
+    ],
+    "require": {
+        "php": ">=7.0",
+        "yiisoft/yii2": "~2.0.14",
+        "yiisoft/yii2-queue": ">=2.2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "silverslice\\queueFailed\\": "src"
+        }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    ]
+}
