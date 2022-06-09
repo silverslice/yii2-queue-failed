@@ -11,7 +11,7 @@ This extension saves failed jobs in database table and helps to view and retry t
 Apply database migration:
 
 ```shell
-yii migrate --migrationPath=@vendor/silverclice/yii2-queue-failed/src/migrations/
+yii migrate --migrationPath=@vendor/silverslice/yii2-queue-failed/src/migrations/
 ```
 
 ## Configuration
