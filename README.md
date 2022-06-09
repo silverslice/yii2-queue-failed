@@ -94,3 +94,41 @@ yii queue-failed/remove ID
 yii queue-failed/clear
 ```
 Pass --class option to filter jobs by class.
+
+## Notes
+
+Jobs are saved in `queue_failed` table by default.
+You can change table name in the config (also you need to change name in migration):
+
+```php
+'queueFailed' => [
+    'class' => silverslice\queueFailed\QueueFailed::class,
+    'tableName' => 'failed_jobs'
+],
+```
+
+Extension attaches behavior to save failed jobs to the `queue` component by default.
+Change queue component name or add more queue components in the config if you need:
+
+```php
+'queueFailed' => [
+    'class' => silverslice\queueFailed\QueueFailed::class,
+    'queue' => ['queue', 'queueDb'],
+],
+```
+
+Extension registers its own console commands based on its component id.
+You can change it however you like:
+
+```php
+'failed' => [
+    'class' => silverslice\queueFailed\QueueFailed::class,
+    'queue' => ['queue', 'queueDb'],
+],
+```
+
+Then use in console:
+
+```shell
+yii failed/list
+```
