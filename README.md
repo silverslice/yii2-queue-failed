@@ -17,6 +17,7 @@ yii migrate --migrationPath=@vendor/silverslice/yii2-queue-failed/src/migrations
 ## Configuration
 
 Add `queueFailed` component to the console application config file:
+
 ```php
 return [
     'components' => [
@@ -28,6 +29,7 @@ return [
 ```
 
 Add `queueFailed` component to the `bootstrap`:
+
 ```php
 return [
     'bootstrap' => [
@@ -40,6 +42,7 @@ return [
 ## Usage in console
 
 #### Show all failed jobs:
+
 ```shell
 yii queue-failed/list
 
@@ -48,12 +51,12 @@ yii queue-failed/list
 ╟────┼───────────────────────────┼─────────────────────╢
 ║ 1  │ app\models\jobs\FailedJob │ 2022-06-06 06:14:32 ║
 ╚════╧═══════════════════════════╧═════════════════════╝
-
 ```
 
 Command displays job ID, job class and failure time. The job ID may be used to execute failed job again.
 
 #### Show detailed information about a job by ID:
+
 ```shell
 yii queue-failed/info ID
 ```
@@ -62,26 +65,31 @@ Command displays additional information about the job (job payload and error).
 
 
 #### Execute a job by ID:
+
 ```shell
 yii queue-failed/exec ID
 ```
 
 #### Execute all jobs:
+
 ```shell
 yii queue-failed/run
 ```
 
 Pass --class option to filter jobs by class:
+
 ```shell
 yii queue-failed/run --class='app\models\jobs\FailedJob'
 ```
 
 #### Remove a job by ID:
+
 ```shell
 yii queue-failed/remove ID
 ```
 
 #### Clear all failed jobs:
+
 ```shell
 yii queue-failed/clear
 ```
