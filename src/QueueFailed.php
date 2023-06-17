@@ -65,17 +65,19 @@ class QueueFailed extends Component implements BootstrapInterface
     /**
      * Saves job in failed table.
      *
+     * @param string|null $jobId unique id of the job
      * @param JobInterface $job
      * @param \Throwable $error
      * @param string $queue Queue component id
      * @return void
      * @throws \yii\db\Exception
      */
-    public function add(JobInterface $job, $error, $queue)
+    public function add($jobId, JobInterface $job, $error, $queue)
     {
         $this->db->createCommand()->insert($this->tableName, [
             'queue' => $queue,
             'class' => get_class($job),
+            'original_job_id' => $jobId,
             'job' => serialize($job),
             'error' => $error,
             'failed_at' => time(),

@@ -46,14 +46,14 @@ return [
 ```shell
 yii queue-failed/list
 
-╔════╤═══════════════════════════╤═════════════════════╗
-║ Id │ Class                     │ Failed at           ║
-╟────┼───────────────────────────┼─────────────────────╢
-║ 1  │ app\models\jobs\FailedJob │ 2022-06-06 06:14:32 ║
-╚════╧═══════════════════════════╧═════════════════════╝
+╔════╤═══════════════════════════╤═════════════════╤═════════════════════╗
+║ Id │ Class                     │ Original Job ID │ Failed at           ║
+╟────┼───────────────────────────┼─────────────────┼─────────────────────╢
+║ 1  │ app\models\jobs\FailedJob │ 123456789       │ 2022-06-06 06:14:32 ║
+╚════╧═══════════════════════════╧═════════════════╧═════════════════════╝
 ```
 
-Command displays job ID, job class and failure time. The job ID may be used to execute failed job again.
+Command displays job ID, job class, original job ID and failure time. The ID may be used to execute failed job again.
 
 #### Show detailed information about a job by ID:
 

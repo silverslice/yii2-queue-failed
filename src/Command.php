@@ -51,11 +51,11 @@ class Command extends Controller
 
         $rows = [];
         foreach ($messages as $message) {
-            $rows[] = [$message['id'], $message['class'], $this->formatDate($message['failed_at'])];
+            $rows[] = [$message['id'], $message['class'], $message['original_job_id'], $this->formatDate($message['failed_at'])];
         }
 
         $table = (new Table())
-            ->setHeaders(['Id', 'Class', 'Failed at'])
+            ->setHeaders(['Id', 'Class', 'Original Job ID', 'Failed at'])
             ->setRows($rows)
             ->run();
         $this->stdout($table);
@@ -91,6 +91,11 @@ class Command extends Controller
         $this->stdout("Class", Console::FG_BLUE, Console::BOLD);
         $this->stdout(PHP_EOL);
         $this->stdout($message['class']);
+        $this->stdout(PHP_EOL . PHP_EOL);
+
+        $this->stdout("Original Job ID", Console::FG_BLUE, Console::BOLD);
+        $this->stdout(PHP_EOL);
+        $this->stdout($message['original_job_id']);
         $this->stdout(PHP_EOL . PHP_EOL);
 
         $this->stdout("Failed at", Console::FG_BLUE, Console::BOLD);

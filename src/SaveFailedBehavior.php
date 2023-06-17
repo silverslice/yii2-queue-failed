@@ -27,7 +27,7 @@ class SaveFailedBehavior extends Behavior
     public function afterError(ExecEvent $event)
     {
         if (!$event->retry) {
-            $this->queueFailed->add($event->job, $event->error, $this->queue);
+            $this->queueFailed->add($event->id, $event->job, $event->error, $this->queue);
         }
     }
 }
