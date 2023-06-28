@@ -133,11 +133,11 @@ class QueueFailed extends Component implements BootstrapInterface
     /**
      * Removes all jobs.
      *
-     * @param $class
+     * @param string|null $class
      * @return int
      * @throws \yii\db\Exception
      */
-    public function clear($class)
+    public function clear($class = null)
     {
         $cond = [];
         if ($class) {
